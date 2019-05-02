@@ -8,6 +8,8 @@ use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use Weather\Controller\StartPage;
 
+define(APP_PATH, "/NFQ/php2/oop-weather/");
+
 $request = Request::createFromGlobals();
 
 $loader = new FilesystemLoader('View', __DIR__ . '/src/Weather');
@@ -15,15 +17,15 @@ $twig = new Environment($loader, ['cache' => __DIR__ . '/cache', 'debug' => true
 
 $controller = new StartPage();
 switch ($request->getRequestUri()) {
-    case '/week':
+    case APP_PATH . 'index.php/week':
         $renderInfo = $controller->getWeekWeather();
         break;
-    case '/':
-    default:
+    case APP_PATH. 'index.php':
+//    default:
         $renderInfo = $controller->getTodayWeather();
     break;
 }
-$renderInfo['context']['resources_dir'] = 'src/Weather/Resources';
+$renderInfo['context']['resources_dir'] =  '/NFQ/php2/oop-weather/src/Weather/Resources';
 
 $content = $twig->render($renderInfo['template'], $renderInfo['context']);
 
