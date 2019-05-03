@@ -21,11 +21,11 @@ switch ($request->getRequestUri()) {
         $renderInfo = $controller->getWeekWeather();
         break;
     case APP_PATH. 'index.php':
-//    default:
+    default:
         $renderInfo = $controller->getTodayWeather();
     break;
 }
-$renderInfo['context']['resources_dir'] =  '/NFQ/php2/oop-weather/src/Weather/Resources';
+$renderInfo['context']['resources_dir'] = APP_PATH . 'src/Weather/Resources';
 
 $content = $twig->render($renderInfo['template'], $renderInfo['context']);
 
