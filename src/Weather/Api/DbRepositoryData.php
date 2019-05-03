@@ -5,7 +5,7 @@ namespace Weather\Api;
 use Weather\Model\NullWeather;
 use Weather\Model\Weather;
 
-class DbRepository implements DataProvider
+class DbRepositoryData implements DataProvider
 {
     /**
      * @param \DateTime $date

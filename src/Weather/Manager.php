@@ -3,7 +3,8 @@
 namespace Weather;
 
 use Weather\Api\DataProvider;
-use Weather\Api\DbRepository;
+use Weather\Api\DbRepositoryData;
+use Weather\Api\DbRepositoryWeather;
 use Weather\Model\Weather;
 
 class Manager
@@ -26,7 +27,8 @@ class Manager
     private function getTransporter()
     {
         if (null === $this->transporter) {
-            $this->transporter = new DbRepository();
+            $this->transporter = new DbRepositoryWeather();
+//            $this->transporter = new DbRepositoryData();
         }
 
         return $this->transporter;

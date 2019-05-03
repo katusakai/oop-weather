@@ -8,7 +8,7 @@ use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use Weather\Controller\StartPage;
 
-define(APP_PATH, "/NFQ/php2/oop-weather/");
+define("APP_PATH", "/NFQ/php2/oop-weather/");
 
 $request = Request::createFromGlobals();
 
