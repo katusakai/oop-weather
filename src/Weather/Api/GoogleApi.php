@@ -11,12 +11,27 @@ class GoogleApi
      * @return Weather
      * @throws \Exception
      */
-    public function getToday()
+    public function selectByDate(): Weather
     {
-        $today = $this->load(new NullWeather());
-        $today->setDate(new \DateTime());
+        $result = $this->load(new NullWeather());
+        $result->setDate(new \DateTime());
+        return $result;
+    }
 
-        return $today;
+    public function selectByRange(\DateTime $from, \DateTime $to): array
+    {
+        $dayFrom = $from->getTimestamp() / (3600 * 24);
+        $dayTo = $to->getTimestamp() / (3600 * 24);
+
+        $result = [];
+
+        for($i = $dayFrom; $i < $dayTo; $i++) {
+            $item = $this->load(new NullWeather());
+            $item->setDate(new \DateTime(date('Y-m-d')));
+            $result[] = $item;
+        }
+
+        return $result;
     }
 
     /**

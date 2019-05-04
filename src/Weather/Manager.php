@@ -5,6 +5,7 @@ namespace Weather;
 use Weather\Api\DataProvider;
 use Weather\Api\DbRepositoryData;
 use Weather\Api\DbRepositoryWeather;
+use Weather\Api\GoogleApi;
 use Weather\Model\Weather;
 
 class Manager
@@ -28,6 +29,7 @@ class Manager
     {
         if (null === $this->transporter) {
             $this->transporter = new DbRepositoryWeather();
+            $this->transporter = new GoogleApi();
 //            $this->transporter = new DbRepositoryData();
         }
 
