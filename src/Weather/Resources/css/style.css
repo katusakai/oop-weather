@@ -8560,3 +8560,12 @@ body.md-skin {
     margin: 0;
   }
 }
+
+ul> li > a {
+  color: white;
+}
+
+ul> li > a:hover {
+  color: white;
+  font-weight: bold;
+}
