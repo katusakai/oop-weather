@@ -2,6 +2,7 @@
 
 namespace Weather;
 
+use Symfony\Component\HttpFoundation\Request;
 use Weather\Api\DataProvider;
 use Weather\Api\DbRepositoryData;
 use Weather\Api\DbRepositoryWeather;
@@ -28,9 +29,19 @@ class Manager
     private function getTransporter()
     {
         if (null === $this->transporter) {
-            $this->transporter = new DbRepositoryWeather();
-            $this->transporter = new GoogleApi();
-//            $this->transporter = new DbRepositoryData();
+            $api = Request::createFromGlobals()->query->get("api");
+            switch ($api){
+                case "weather":
+                    $this->transporter = new DbRepositoryWeather();
+                    break;
+                case "google":
+                    $this->transporter = new GoogleApi();
+                    break;
+                case "data":
+                default:
+                $this->transporter = new DbRepositoryData();
+                break;
+            }
         }
 
         return $this->transporter;

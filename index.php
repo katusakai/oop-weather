@@ -16,11 +16,11 @@ $loader = new FilesystemLoader('View', __DIR__ . '/src/Weather');
 $twig = new Environment($loader, ['cache' => __DIR__ . '/cache', 'debug' => true]);
 
 $controller = new StartPage();
-switch ($request->getRequestUri()) {
-    case APP_PATH . 'index.php/week':
+switch ($request->query->get("scale")) {
+    case "week":
         $renderInfo = $controller->getWeekWeather();
         break;
-    case APP_PATH. 'index.php':
+    case "day":
     default:
         $renderInfo = $controller->getTodayWeather();
     break;
