@@ -25,7 +25,7 @@ class GoogleApi
 
         $result = [];
 
-        for($i = $dayFrom; $i < $dayTo; $i++) {
+        for($i = $dayFrom; $i <= $dayTo; $i++) {
             $item = $this->load(new NullWeather());
             $item->setDate(new \DateTime(date('Y-m-d')));
             $result[] = $item;

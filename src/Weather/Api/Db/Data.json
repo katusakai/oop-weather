@@ -18,6 +18,7 @@
   {"date": "2019-05-07", "dayTemp": -17, "nightTemp": 5, "sky": 2},
   {"date": "2019-05-08", "dayTemp": 5, "nightTemp": -3, "sky": 1},
   {"date": "2019-05-09", "dayTemp": 8, "nightTemp": -2, "sky": 3},
+  {"date": "2019-05-10", "dayTemp": 15, "nightTemp": -3, "sky": 2},
   {"date": "2019-05-11", "dayTemp": 15, "nightTemp": 3, "sky": 1},
   {"date": "2019-05-12", "dayTemp": -17, "nightTemp": 5, "sky": 2},
   {"date": "2019-05-13", "dayTemp": 5, "nightTemp": -3, "sky": 1},
